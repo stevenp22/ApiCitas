@@ -15,10 +15,10 @@
         <div class="modal-content" id="modalContent">
             <span class="close-btn" id="closeModalBtn">&times;</span>
             <div class="icon">
-                <img src="https://example.com/warning-icon.png" alt="Warning Icon">
+                <img src="assets/png/peligro.png" alt="Warning Icon">
             </div>
             <h2>USUARIO NO ENCONTRADO</h2>
-            <p>El usuario ingresado no se encuentra en la base de datos.<br>Por favor, verifique los datos e inténtelo de nuevo.</p>
+            <p>El usuario ingresado <strong>no se encuentra en la base de datos.</strong><br>Por favor, verifique los datos e inténtelo de nuevo.</p>
             <button id="acceptBtn">Aceptar</button>
         </div>
     </div>
