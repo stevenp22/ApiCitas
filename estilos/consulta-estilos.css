@@ -34,7 +34,7 @@
     height: 40px;
 }
 h3{
-    width: 150px;
+    width: 120px;
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #696969;
@@ -89,9 +89,14 @@ h3{
     .logos-image {
         display: none;
     }
+    h3 {
+        width: 80px;
+    }
+    .row {
+        font-size: 0.5rem; /* Ajusta el tamaño de la fuente según necesites */
+    }
+
 }
-
-
 /* Estilo para la tabla */
 #tablaBitacoras th:nth-child(1),
 #tablaBitacoras td:nth-child(1) {
@@ -129,7 +134,4 @@ h3{
     display: flex; /* Esto convierte el div en un contenedor Flex */
     justify-content: end; /* Esto alinea el contenido a la derecha */
     padding-right: 10px;
-}
-.form-control{
-    width: 400px;
 }

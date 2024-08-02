@@ -5,7 +5,7 @@ body, html {
 }
 .main-container {
     min-height: 100%; /* Fallback for browsers do not support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,13 +13,12 @@ body, html {
 .container {
     background-color: white;
     max-width: 750px;
-    
     padding: 20px;
     border-radius: 20px;   
 }
 .container-inputs{
-    max-width: 70%;
-    min-width: 40%;
+    max-width: 600px;
+    
     
     display: block;
     margin-left: auto;
@@ -32,6 +31,7 @@ body, html {
     font-size: 20px;
     font-size: 15px;
     color: #42A0D8;
+    
 }
 h5{
     color: #828282;
@@ -127,6 +127,25 @@ h5{
         left: 50px;
     }
    
+}
+@media screen and (max-width: 390px) {
+   .logo-hdtuu-image{
+    left: 25px;
+   }
+   .bear-image{
+    right: 20px;
+    width: 130px;
+    height: 180px;
+
+   }
+   .container{
+    width: 350px;
+   }
+   .modal-content{
+    font-size: 1.2rem;
+   }
+
+    
 }
 
 

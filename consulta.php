@@ -52,7 +52,7 @@
                             <tbody>
                                 <tr>
                                     <td>a</td>
-                                    <td></td>
+                                    <td>a</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -68,6 +68,7 @@
                                         <input type='hidden' name='estado' value='Inactivo' >
                                     </form>
                                     </td>
+                                    
                                 
                                     <td>
                                     <form style='all: initial;' action='crearUsuario.php' method='post'>
