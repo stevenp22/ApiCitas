@@ -25,7 +25,7 @@
     <div class="main-container">
         <div class="container">
             <button type="button" class="btn btn-default btn-back">← Atrás</button>
-            <h3>Por favor, ingrese su número de cédula y tipo de documento</h3>
+            <h3>Por favor, ingrese su <strong>número de cédula y tipo de documento</strong></h3>
             <div class="container-inputs">  
                 <h5>Tipo de documento</h5>
                 <select class="form-control">

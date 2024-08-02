@@ -1,0 +1,92 @@
+ html {
+    height: 100%;
+    margin: 0;
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-main {
+    background-color: white;
+    height: 75vh;
+    width: 80vw;
+    position: relative;
+    
+   
+     /* Asegura que el div no exceda el 70% del ancho de la pantalla */
+    
+}
+
+.content-user{
+    
+    align-items: center;
+    position: absolute; 
+    width: auto;
+    top: -45px; /* Ajusta para alinear en la parte superior */
+    right: 0px; /* Ajusta para alinear a la izquierda */
+    z-index: 2;
+}
+
+.img-user{
+    background-image: url('../assets/png/avatar.png'); /* Ajusta la ruta según tu estructura de carpetas */
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+}
+h3{
+    width: 150px;
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #696969;
+}
+.btn-back {
+    position: absolute; 
+    border: 1px solid rgb(0, 0, 0, .2);
+    border-radius: 10px;
+    width: 110px;
+    padding: 7px;;
+    top: -50px; /* Ajusta para alinear en la parte superior */
+    left: 0; /* Ajusta para alinear a la izquierda */
+    z-index: 2;
+    background-color: #F9F5E7;
+}
+.logos-image {
+    position: fixed;
+    bottom: 15px; /* Recorta 1/3 de la imagen por debajo */
+    left: 50px;
+    background-image: url('../assets/png/Logos_inst.png'); /* Ajusta la ruta según tu estructura de carpetas */
+    background-size: cover;
+    width: 500px;
+    height: 55px;
+    z-index: 1; /* Asegura que la imagen no interfiera con otros elementos interactivos */
+}
+.logo-hdtuu-image {
+    position: fixed;
+    bottom: 15px; /* Recorta 1/3 de la imagen por debajo */
+    right: 50px;
+    background-image: url('../assets/png/logo-horiz.png'); /* Ajusta la ruta según tu estructura de carpetas */
+    background-size: cover;
+    width: 200px;
+    height: 55px;
+    z-index: 1; /* Asegura que la imagen no interfiera con otros elementos interactivos */
+}
+
+
+
+@media screen and (max-width: 1360px) {
+    .logos-image {
+        width: 400px;
+        height: 45px;
+    }
+    .logo-hdtuu-image {
+        width: 170px;
+        height: 50px;
+        
+    }
+ 
+}
+@media screen and (max-width: 700px) {
+    .logos-image {
+        display: none;
+    }
+}

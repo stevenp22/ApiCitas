@@ -75,8 +75,9 @@ h5{
     right: 25px;
     background-image: url('../assets/png/bear.png'); /* Ajusta la ruta según tu estructura de carpetas */
     background-size: cover;
-    width: 200px; 
-    height: 300px; 
+   
+    min-width: 150px;
+    min-height: 200px;
     z-index: 1; /* Asegura que la imagen no interfiera con otros elementos interactivos */
 }
 
@@ -121,11 +122,10 @@ h5{
     .logos-image {
         display: none;
     }
-    .bear-image {
-        width: 100px;
-        height: 100px;
-    }
     
+    .logo-hdtuu-image {
+        left: 50px;
+    }
    
 }
 
@@ -259,6 +259,10 @@ p {
 }
 
 #acceptBtn:hover {
-    background-color: #0056b3;
+    background-color: rgb(28, 95, 167);
 }
 
+.icon img {
+    width: 100px; 
+    height: auto; 
+}
