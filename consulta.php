@@ -18,7 +18,7 @@
         <button type="button" class="btn btn-default btn-back">← Salir</button>
         <div class="content-user row justify-content-end">
             <div class="col-8">
-                <h3>66714956</h3>
+                <h3>66714956</h3> <!-- Aquí va el número de cédula del usuario -->
             </div>
             <div class="col-4">
                 <div class="img-user"></div>
@@ -50,68 +50,72 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    include "../../models/bd/conexionBD.php";
-        
-                                    $sql = "SELECT U.id, U.nombre_c, U.usuario, U.correo, R.rol, I.institucion nombre_institucion, M.municipio, Date(U.fecha_creacion) fecha_creacion, U.estado
-                                    FROM usuarios U 
-                                    INNER JOIN roles R ON U.rol = R.id
-                                    INNER JOIN instituciones I ON U.institucion = I.id
-                                    INNER JOIN municipios M ON I.municipio = M.id
-                                    ORDER BY U.rol ASC";
-                                    $result = $conn->query($sql);
-        
-                                    if ($result->num_rows > 0) {
-                                        // output data of each row
-                                        while($row = $result->fetch_assoc()) {
-                                            $id = $row["id"];
-                                            echo "
-                                            <tr>
-                                            <td>". $row["rol"]. "</td>
-                                            <td>". $row["usuario"]. "</td>
-                                            <td>". $row["nombre_institucion"]. "</td>
-                                            <td>". $row["municipio"]. "</td>
-                                            <td>". $row["fecha_creacion"]. "</td>
-                                            <td>". $row["estado"]. "</td>";
-                                            if($row["estado"] == 'Activo' && $row['rol'] == 'Administrador'){
-                                                echo "<td></td>";
-                                            }else if($row["estado"] == 'Activo' && ($row['rol'] == 'Editor' || $row['rol'] == 'Reportes')){
-                                                echo "
-                                                <td>
-                                                <form style='all: initial;' action='crearUsuario.php' method='post'>
-                                                    <button type='btn-submit' class='btn btn-success' title='Desactivar Usuario'>
-                                                        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-check' viewBox='0 0 16 16'>
-                                                            <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'/>
-                                                            <path d='M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>
-                                                        </svg>
-                                                    </button>
-                                                    <input type='hidden' name='id' value=".$id." >
-                                                    <input type='hidden' name='estado' value='Inactivo' >
-                                                </form>
-                                                </td>";
-                                            }else{
-                                                echo "
-                                                <td>
-                                                <form style='all: initial;' action='crearUsuario.php' method='post'>
-                                                    <input type='hidden' name='estado' value=true >
-                                                    <button type='submit' class='btn btn-danger' title='Activar Usuario'>
-                                                    <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-x' viewBox='0 0 16 16'>
-                                                        <path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'></path>
-                                                        <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z'></path>
-                                                    </svg>
-                                                    </button>
-                                                    <input type='hidden' name='id' value=".$id." >
-                                                    <input type='hidden' name='estado' value='Activo' >
-                                                </form>
-                                                </td>";
-                                            }
-                                            echo "</tr>";
-                                        }
-                                    } else {
-                                        echo "0 resultados";
-                                    }
-                                    $conn->close();
-                                ?>
+                                <tr>
+                                    <td>a</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                    <form style='all: initial;' action='crearUsuario.php' method='post'>
+                                        <button type='btn-submit' class='btn btn-success' title='Desactivar Usuario'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-check' viewBox='0 0 16 16'>
+                                                <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'/>
+                                                <path d='M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>
+                                            </svg>
+                                        </button>
+                                        <input type='hidden' name='id' value=".$id." >
+                                        <input type='hidden' name='estado' value='Inactivo' >
+                                    </form>
+                                    </td>
+                                
+                                    <td>
+                                    <form style='all: initial;' action='crearUsuario.php' method='post'>
+                                        <input type='hidden' name='estado' value=true >
+                                        <button type='submit' class='btn btn-danger' title='Activar Usuario'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-x' viewBox='0 0 16 16'>
+                                            <path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'></path>
+                                            <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z'></path>
+                                        </svg>
+                                        </button>
+                                        <input type='hidden' name='id' value=".$id." >
+                                        <input type='hidden' name='estado' value='Activo' >
+                                    </form>
+                                    </td>
+                                </tr>   
+                                <tr>
+                                    <td>a</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                    <form style='all: initial;' action='crearUsuario.php' method='post'>
+                                        <button type='btn-submit' class='btn btn-success' title='Desactivar Usuario'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-check' viewBox='0 0 16 16'>
+                                                <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'/>
+                                                <path d='M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>
+                                            </svg>
+                                        </button>
+                                        <input type='hidden' name='id' value=".$id." >
+                                        <input type='hidden' name='estado' value='Inactivo' >
+                                    </form>
+                                    </td>
+                                
+                                    <td>
+                                    <form style='all: initial;' action='crearUsuario.php' method='post'>
+                                        <input type='hidden' name='estado' value=true >
+                                        <button type='submit' class='btn btn-danger' title='Activar Usuario'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-fill-x' viewBox='0 0 16 16'>
+                                            <path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'></path>
+                                            <path d='M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z'></path>
+                                        </svg>
+                                        </button>
+                                        <input type='hidden' name='id' value=".$id." >
+                                        <input type='hidden' name='estado' value='Activo' >
+                                    </form>
+                                    </td>
+                                </tr>    
                             </tbody>
                         </table>
                     </div> 
@@ -125,4 +129,5 @@
     <div class="logo-hdtuu-image"></div>
 </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</html>
+    <script src="datatable.js"></script>
+    </html>

@@ -90,3 +90,37 @@ h3{
         display: none;
     }
 }
+
+
+/* Estilo para la tabla */
+#tablaBitacoras th:nth-child(1),
+#tablaBitacoras td:nth-child(1) {
+    width: 20%;
+}
+
+#tablaBitacoras th:nth-child(2),
+#tablaBitacoras td:nth-child(2) {
+    width: 20%;
+}
+
+#tablaBitacoras th:nth-child(3),
+#tablaBitacoras td:nth-child(3) {
+    width: 60%;
+}
+
+
+/* Cambiar el color de fondo de los botones de paginación */
+.page-item .page-link {
+  background-color: #8AA2D4;
+  color: white; /* Cambiar el color del texto si es necesario */
+  
+}
+.pagination{
+    justify-content: end;
+    padding-right: 10px;
+}
+
+/* Cambiar el color de fondo de los botones de paginación activos */
+.page-item.active .page-link {
+  background-color: #8AA2D4;
+}
