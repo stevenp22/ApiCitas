@@ -124,3 +124,12 @@ h3{
 .page-item.active .page-link {
   background-color: #8AA2D4;
 }
+
+.dataTables_filter {
+    display: flex; /* Esto convierte el div en un contenedor Flex */
+    justify-content: end; /* Esto alinea el contenido a la derecha */
+    padding-right: 10px;
+}
+.form-control{
+    width: 400px;
+}
