@@ -6,8 +6,11 @@
     justify-content: center;
     align-items: center;
 }
+body{
+    background-color: #F6F6F6;
+}
 .content-main {
-    background-color: white;
+    
     height: 75vh;
     width: 80vw;
     position: relative;
@@ -92,11 +95,51 @@ h3{
     h3 {
         width: 80px;
     }
+   
+
+}
+@media screen and (max-width: 450px) {
+    
     .row {
         font-size: 0.5rem; /* Ajusta el tamaño de la fuente según necesites */
     }
+    .content-main {
+        top: 20px;
+    }
+    .btn {
+        font-size: 0.5rem; /* Reduce el tamaño de la fuente */
+        padding: 5px 10px; /* Reduce el relleno */
+    }
 
+    
+    .img-user{
+        width: 30px;
+        height: 30px;
+    }
+    h3{
+    font-size:1.2rem;
+    
+    }
+    .img-user{
+    background-image: url('../assets/png/avatar.png'); /* Ajusta la ruta según tu estructura de carpetas */
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    }
+    svg {
+        width: 12px; /* Ajusta el ancho según necesites */
+        height: 12px; /* Ajusta la altura según necesites */
+    }
+    h6{
+        font-size: 0.6rem;
+    }
+    .pagination li a {
+        font-size: 0.5rem;
+    }
 }
+
+
+
 /* Estilo para la tabla */
 #tablaBitacoras th:nth-child(1),
 #tablaBitacoras td:nth-child(1) {
