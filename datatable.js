@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('.table').DataTable( {
+        "pageLength": 10,
         language: {
             "decimal":        "",
             "emptyTable":     "No hay datos",

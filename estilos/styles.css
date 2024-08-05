@@ -76,8 +76,8 @@ h5{
     background-image: url('../assets/png/bear.png'); /* Ajusta la ruta según tu estructura de carpetas */
     background-size: cover;
    
-    min-width: 150px;
-    min-height: 200px;
+    width: 150px;
+    height: 200px;
     z-index: 1; /* Asegura que la imagen no interfiera con otros elementos interactivos */
 }
 
@@ -134,8 +134,8 @@ h5{
    }
    .bear-image{
     right: 20px;
-    width: 130px;
-    height: 180px;
+    width: 100px;
+    height: 150px;
 
    }
    .container{

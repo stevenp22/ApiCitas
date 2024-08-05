@@ -45,9 +45,12 @@
             </div>
         </div>
     </div>
+    <footer>0
     <div class="bear-image"></div>
     <div class="logos-image"></div>
     <div class="logo-hdtuu-image"></div>
+    </footer>
+    
 
     <script>
         function onClick(e) {

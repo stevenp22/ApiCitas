@@ -14,8 +14,6 @@ body{
     height: 75vh;
     width: 80vw;
     position: relative;
-    
-   
      /* Asegura que el div no exceda el 70% del ancho de la pantalla */
     
 }
@@ -99,12 +97,12 @@ h3{
 
 }
 @media screen and (max-width: 450px) {
-    
+   
     .row {
         font-size: 0.5rem; /* Ajusta el tamaño de la fuente según necesites */
     }
     .content-main {
-        top: 20px;
+        top: 50px;
     }
     .btn {
         font-size: 0.5rem; /* Reduce el tamaño de la fuente */
@@ -137,9 +135,15 @@ h3{
         font-size: 0.5rem;
     }
     .btn-back {
+        top: -45px;
         font-size: 1rem;
         width: 80px;
         padding: 5px;
+    }
+    .logo-hdtuu-image {
+        width: 120px;
+        height: 35px;
+        left: 10px;
     }
 }
 
@@ -182,4 +186,9 @@ h3{
     display: flex; /* Esto convierte el div en un contenedor Flex */
     justify-content: end; /* Esto alinea el contenido a la derecha */
     padding-right: 10px;
+}
+
+.content-main{
+    margin-bottom: 320px;
+    margin-top: 320px;
 }
