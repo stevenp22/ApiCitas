@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citas Medicas Tomas Consultas</title>
+    <title>Citas</title>
+    <link rel="icon" href="../png/logo.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../estilos/consulta-estilos.css">
-   
-
+    <link rel="stylesheet" href="../styles/citas.css">
 </head>
 <body>
     <div class="container-fluid principal">
@@ -22,15 +22,15 @@
                     <table id="table" class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Fecha</th>
+                                <th>🚦</th>                         
+                                <th>ESTADO</th>     
+                                <th>FECHA</th>
                                 <th>HORA</th>
                                 <th>ESPECIALIDAD</th>
                                 <th>PROCEDIMIENTO</th>
-                                <th>ESTADO</th>                              
                             </tr>
                         </thead>
                         <tbody id="tabla-body">
-                            <!-- Aquí se insertarán los datos del usuario -->
                         </tbody>
                     </table>
                 </div>
@@ -40,55 +40,29 @@
     </div>
     <footer>
         <section>
-
-            <div class="logos-image"></div>
-            <div class="logo-hdtuu-image"></div>
+            <div class="row" style="margin-right: 0!important;">
+                <div class="col-md-8 col-lg-8 col-xl-8 logos">
+                    <img src="./png/Logos_inst.png" id="logos" alt="Logos" title="Logos" >
+                </div>
+                <div class="col-md-2 col-lg-2 ">
+                  
+                </div>
+                <div class="col-md-2 col-lg-2 mt-3 logos">
+                    <img src="./png/logo-horiz.png" id="logo-horizontal" alt="logo-horizontal" title="logo-horizontal" >
+                </div>
+            </div>
         </section>
+        <div class="p-3" style="background-color: rgba(0, 0, 0, 0.05); text-align: center;">
+            © 2024 Copyright: <a class="text-reset fw-bold">Sistemas - HDTUU</a>
+        </div>
     </footer>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../node_modules/datatables.net/js/dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../node_modules/datatables.net-dt/css/dataTables.dataTables.min.css">
-    <script src="js/datatable.js"></script>
-    <script>
-        
-            
-        function mostrarDatosPacientes(pacientes) {
-            const tablaBody = document.getElementById('tabla-body');
-            let filas = '';
-
-            pacientes.forEach(usuario => {
-                filas += `
-                    <tr>
-                        <td>${usuario.FchCitPac}</td>
-                        <td>${usuario.HorCitPac}</td>
-                        <td>${usuario.NomEspCit}</td>
-                        <td>${usuario.NomProCit}</td>
-                        <td>${usuario.EstCitPac}</td>
-                    </tr>
-                `;
-            });
-
-            tablaBody.innerHTML = filas;
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const pacientes = JSON.parse(decodeURIComponent(urlParams.get('citas')));
-        const usuario = JSON.parse(decodeURIComponent(urlParams.get('usuario')));
-        const usuarioTexto = `${usuario.TipDocPac} ${usuario.NumDocPac} | ${usuario.NombPac}`;
-
-        if (pacientes) {
-            document.getElementById('infoUsuario').innerText = usuarioTexto;
-            mostrarDatosPacientes(pacientes);
-        } else {
-            console.error('No se encontraron pacientes o hubo un error en la solicitud.');
-        }
-
-        document.querySelector('.btn-back').addEventListener('click', function() {
-            window.location.href = '/CitasConTomas';
-        });
-
-    </script>
+    <script src="./js/datatable.js"></script>
+    <script src="./js/citas.js"></script>
+   
 </body>
 </html>

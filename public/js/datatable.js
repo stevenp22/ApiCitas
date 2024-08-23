@@ -1,6 +1,8 @@
 $(document).ready(function() {
     $('.table').DataTable({
-        "pageLength": 4,
+        "pageLength": 5,
+        searching: false,
+        paging: false,
         language: {
             "decimal":        "",
             "emptyTable":     "No hay datos",
@@ -24,6 +26,7 @@ $(document).ready(function() {
                 "sortAscending":  ": Activar para ordenar la columna ascendente",
                 "sortDescending": ": Activar para ordenar la columna descendente"
             }
+            
         }
     });
 });

@@ -9,7 +9,6 @@ app.use(express.static('public'));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.post('/verificar-paciente', (req, res) => {
-    console.log('Datos recibidos:', req.body);
 
     const { tipoDocumento, numeroDocumento } = req.body;
 
@@ -19,7 +18,6 @@ app.post('/verificar-paciente', (req, res) => {
 
     verificarPaciente(tipoDocumento, numeroDocumento, (error, resultado) => {
         if (error) {
-            console.error('Error en la base de datos:', error);
             return res.status(500).json({ error: 'Error en la base de datos' });
         }
         if (resultado.length > 0) {
@@ -40,8 +38,6 @@ app.post('/verificar-paciente', (req, res) => {
                 CodProCit: cita.CodProCit,
                 NomProCit: cita.NomProCit
             }));
-
-            console.log(usuario)
         
             return res.status(200).json({ mensaje: 'Citas encontradas', usuario: usuario, citas: citas  });
         } else {

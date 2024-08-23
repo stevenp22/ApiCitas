@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citas Medicas Tomas</title>
+    <link rel="icon" href="../png/logo.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../estilos/styles.css">
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeV-QoqAAAAABw3V7KI_B40KowW_pRQtK6lHse3"></script>
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
     <div id="modal" class="modal">
@@ -14,93 +15,51 @@
         <div class="modal-content" id="modalContent">
             <span class="close-btn" id="closeModalBtn">&times;</span>
             <div class="icon">
-                <img src="../assets/png/peligro.png" alt="Warning Icon">
+                <img src="../png/peligro.png" alt="Warning Icon">
             </div>
             <h2>USUARIO NO ENCONTRADO</h2>
             <p>El usuario ingresado <strong>no se encuentra en la base de datos.</strong><br>Por favor, verifique los datos e inténtelo de nuevo.</p>
             <button id="acceptBtn">Aceptar</button>
         </div>
     </div>
-    <div class="main-container">
-        <div class="container">
-            <button type="button" class="btn btn-default btn-back">← Atrás</button>
-            <h3>Por favor, ingrese su <strong>número de cédula y tipo de documento</strong></h3>
-            <div class="container-inputs">  
-                <h5>Tipo de documento</h5>
-                <select class="form-control" id="tipoDocumento" >
-                    <option>Tipo de documento</option>
-                    <option value="CC">Cédula de Ciudadanía</option>
-                    <option>Tarjeta de Identidad</option>
-                    <option>Cédula de Extranjería</option>
-                    <option>Pasaporte</option>
-                </select><br>
-                
-                <h5>Número de documento</h5>
-                <input type="text" placeholder="Número de documento" class="form-control" id="numeroDocumento" ><br>
-                <button type="button" class="btn btn-primary" id="verificarBtn" style="width: 100%;" >Buscar cita</button>
-              
-            </div>
+    <div class="container">
+        <h2>Consulta el estado de tu Cita con Tomas!</h2>
+        <h6>Por favor, ingrese su tipo y número de documento.</h6>
+        <div class="container-inputs">  
+            <h5>Tipo de documento</h5>
+            <select class="form-control" id="tipoDocumento" >
+                <option selected disabled="">Seleccione</option>
+                <option value="CC">Cédula de Ciudadanía</option>
+                <option value="TI">Tarjeta de Identidad</option>
+                <option value="CE">Cédula de Extranjería</option>
+                <option value="PA">Pasaporte</option>
+            </select><br>
+            
+            <h5>Número de documento</h5>
+            <input type="text" placeholder="Número de documento" class="form-control" id="numeroDocumento" ><br>
+            <button type="button" class="btn btn-primary" id="verificarBtn" >Buscar cita</button>            
+            <div class="bear-image"></div>
         </div>
     </div>
     <footer>
-        <div class="bear-image"></div>
-        <div class="logos-image"></div>
-        <div class="logo-hdtuu-image"></div>
+        <section>
+            <div class="row" style="margin-right: 0!important;">
+                <div class="row" style="margin-right: 0!important;">
+                    <div class="col-md-8 col-lg-8 col-xl-8 mx-4 logos">
+                        <img src="./png/Logos_inst.png" id="logos" alt="Logos" title="Logos" >
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 mb-4 logos">
+                    <img src="./png/logo-horiz.png" id="logo-horizontal" alt="logo-horizontal" title="logo-horizontal" >
+                </div>
+            </div>
+        </section>
+        <div class="p-3" style="background-color: rgba(0, 0, 0, 0.05); text-align: center;">
+            © 2024 Copyright: <a class="text-reset fw-bold">Sistemas - HDTUU</a>
+        </div>
     </footer>
-
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('verificarBtn').addEventListener('click', function() {
-            const tipoDocumento = document.getElementById('tipoDocumento').value;
-            const numeroDocumento = document.getElementById('numeroDocumento').value;
-    
-            if (!tipoDocumento || !numeroDocumento) {
-                alert('Por favor, complete todos los campos.');
-                return;
-            }
-
-            fetch('/verificar-paciente', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify({ tipoDocumento, numeroDocumento })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error en la solicitud: ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.mensaje === 'Citas encontradas') {
-                    const queryParams = new URLSearchParams({
-                        mensaje: data.mensaje,
-                        usuario: encodeURIComponent(JSON.stringify(data.usuario)),
-                        citas: encodeURIComponent(JSON.stringify(data.citas))
-                    }).toString();
-                    const url = `/Citas?${queryParams}`;
-                    window.location.href = url;
-                } else {
-                    document.getElementById('modal').style.display = 'block';
-                }
-            })
-            .catch(error => {
-                document.getElementById('modal').style.display = 'block';
-            });
-        });
-    
-        document.getElementById('closeModalBtn').addEventListener('click', function() {
-            document.getElementById('modal').style.display = 'none';
-        });
-    
-        document.getElementById('acceptBtn').addEventListener('click', function() {
-            document.getElementById('modal').style.display = 'none';
-        });
-    </script>
-    
-       
+    <script src="./js/index.js"></script>     
 </body>
 </html>

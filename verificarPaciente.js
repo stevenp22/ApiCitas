@@ -1,5 +1,5 @@
 // verificarPaciente.js
-const { poolMysql } = require('./dbConfig');
+const { poolMysql } = require('./config/dbConfig');
 
 function verificarPaciente(tipoDocumento, numeroDocumento, callback) {
     

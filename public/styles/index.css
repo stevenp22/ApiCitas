@@ -1,0 +1,236 @@
+*{
+    font-size: 18px;
+}
+  
+body {
+    background-color: #e7e4e4;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+} 
+
+h5{
+    color: #42A0D8;
+}
+
+h2{
+    color: #42A0D8;
+    text-align: center;
+}
+
+h6{
+    text-align: center;
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: white;
+    max-width: 50%;
+    padding: 20px;
+    border-radius: 20px;   
+}
+
+.container-inputs{
+    padding: 15px;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Asegura que el oso se posicione relativo a este contenedor */
+    z-index: 1; /* Asegura que los elementos interactivos estén por encima del oso */
+}
+
+.container-inputs input {
+    margin-left: 20px;
+    width: 90%;
+    background-color: #d6d6d6; /* Cambia el color de fondo */
+    border-radius: 8px; /* Aumenta el radio del borde */
+}
+
+.container-inputs select {
+    margin-left: 20px;
+    width: 90%;
+    background-color: #d6d6d6; /* Cambia el color de fondo */
+    border-radius: 8px; /* Aumenta el radio del borde */
+}
+
+.btn-primary{
+    width: 100%;
+    background-color: #42A0D8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.bear-image {
+    position: absolute; /* Cambiado de 'fixed' a 'absolute' */
+    bottom: -165px; /* Ajusta la posición del oso según sea necesario */
+    right: -200px; /* Ajusta la posición del oso según sea necesario */
+    background-image: url('../png/bear.png'); 
+    background-size: cover;
+    z-index: 0; /* Cambiado a 0 para que quede detrás del contenido */
+}
+
+#logos {
+    width: 670px;
+    height: 100px;
+}
+
+#logo-horizontal{
+    display: none;
+}
+
+#showModalBtn {
+    padding: 10px 60px;
+    font-size: 16px;
+    cursor: pointer; 
+}
+
+.modal {
+    display: none;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    animation: backgroundBlur 1s ease-out;
+    backdrop-filter: blur(5px); 
+}
+
+.modal-content {
+    top: 15%;   
+    background-color: #fff;
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    animation: slideDown 0.5s ease-out; /* Animación vertical */
+    z-index: 4;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes backgroundBlur {
+    0% {
+        backdrop-filter: blur(0);
+        background-color: rgba(0, 0, 0, 0); 
+    }
+    30% {
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    100% {
+        backdrop-filter: blur(5px);
+    }
+
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+#acceptBtn {
+    padding: 10px 40px;
+    background-color: #42A0D8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#acceptBtn:hover {
+    background-color: rgb(28, 95, 167);
+}
+
+@media screen and (max-width: 1860px) {
+    .bear-image {
+        width: 210px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    * {
+        font-size: 12px;
+    }
+    .container {
+        margin-top: 15px;
+        max-width: 70%;
+    }
+    .bear-image {
+        display: none;
+    }
+   
+}
+
+@media only screen and (max-width: 600px) {
+    * {
+        font-size: 13px;
+    }
+    .container {
+        margin-top: 50px;
+        max-width: 85%;
+    }
+    .bear-image {
+        display: none;
+    }
+    #logos {
+        width: 350px;
+        height: 60px;
+    }
+    #logo-horizontal{
+        margin-top: 10PX;
+        margin-left: 50px;
+        display: block;
+        width: 75%;
+        height: 75px;
+    }
+}
