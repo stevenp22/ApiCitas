@@ -17,7 +17,7 @@ async function connectSqlServer() {
                     WHEN c.citesta = 'C' THEN 'CONFIRMADA' 
                     WHEN c.citesta = 'I' THEN 'INCUMPLIDA' 
                     WHEN c.citesta = 'N' THEN 'CANCELADA' END EstCitPac,
-                m.menome NomEspCit, cast(c.CitFecPa as date) FchCitPac, CitNomAut HorCitPac, md.mmnomm NomEspcCit, 
+                m.menome NomEspCit, cast(c.CitFecPa as date) FchCitPac, c.CitHorIPa HorCitPac, md.mmnomm NomEspcCit, 
                 CitProCod CodProCit, mp.prnomb NomProCit, cb.MpTele2 TelPac
                 FROM citmed1 c
                 INNER JOIN citmed2 c2 ON (c.citnum = c2.citnum AND c.citemp = c2.citemp AND c.citsed = c2.citsed)
@@ -51,7 +51,7 @@ async function insertIntoMysql(citas) {
             });
         });
 
-        const deleteCitas = 'DELETE FROM Citas_Pruebas';
+        const deleteCitas = 'DELETE FROM Citas';
 
         connection.query(deleteCitas, (error, results) => {
             const now = new Date();
@@ -63,7 +63,7 @@ async function insertIntoMysql(citas) {
             }
         });
 
-        const insertQuery = `INSERT INTO Citas_Pruebas (NumCitPac, TipDocPac, NumDocPac, NombPac, EstCitPac, NomEspCit, FchCitPac, HorCitPac, NomEspcCit, CodProCit, NomProCit, TelPac) VALUES ?`;
+        const insertQuery = `INSERT INTO Citas (NumCitPac, TipDocPac, NumDocPac, NombPac, EstCitPac, NomEspCit, FchCitPac, HorCitPac, NomEspcCit, CodProCit, NomProCit, TelPac) VALUES ?`;
 
         const values = citas.map(cita => [
             cita.NumCitPac, cita.TipDocPac, cita.NumDocPac, cita.NombPac, cita.EstCitPac, cita.NomEspCit, 
@@ -96,7 +96,7 @@ async function copyCitasToHistorico() {
             });
         });
 
-        const insertQuery = 'INSERT INTO Citas_Historico_Pruebas SELECT * FROM Citas';
+        const insertQuery = 'INSERT INTO Citas_Historico SELECT * FROM Citas';
 
         connection.query(insertQuery, (error, results) => {
             const now = new Date();

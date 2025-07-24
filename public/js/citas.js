@@ -50,15 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${formatearHora(usuario.HorCitPac)}</td>
                     <td>${usuario.NomEspCit}</td>
                     <td>${usuario.NomProCit}</td>
-                    <td>
-                        <button class="btn btn-danger btn-eliminar" 
-                        data-cita="${usuario.NomProCit}"
-                        data-tel="${usuario.TelPac}"
-                        >
-                            Eliminar
-                        </button>
-                    </td>
-
                 </tr>
             `;
     });
@@ -183,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function formatearFecha(fecha) {
     const date = new Date(fecha);
-    const dia = String(date.getDate()).padStart(2, "0");
+    const dia = String(date.getDate() + 1).padStart(2, "0");
     const mes = String(date.getMonth() + 1).padStart(2, "0"); // Los meses empiezan desde 0
     const año = date.getFullYear();
     return `${dia}-${mes}-${año}`;
