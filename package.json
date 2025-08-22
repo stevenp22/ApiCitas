@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "api": "nodemon api.js"
+    "api": "nodemon api.js",
+    "docker-build": "docker build -t sistemasdba/apicitas:3.0.0 .",
+    "docker-push": "docker push sistemasdba/apicitas:3.0.0"
   },
   "keywords": [],
   "author": "",
